@@ -1,2 +1,3 @@
 export * from './ErrorPage';
-export * from '../pages/TodoAppPage';
+export * from './Heading';
+export * from './TodoList';

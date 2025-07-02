@@ -4,7 +4,6 @@ export function TodoAppPage() {
 
   return (
     <>
-      <h1>Hello world</h1>
       <TodoList/>
     </>
   )
