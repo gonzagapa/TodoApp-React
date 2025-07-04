@@ -5,3 +5,5 @@ export * from './main';
 export * from './pages/FormTodoPage';
 export * from './pages/TodoAppPage';
 export * from './router/router';
+
+export * from "./data/Todo";
