@@ -1,9 +1,13 @@
 export * from './components/ErrorPage';
+export * from './components/Heading';
+export * from './components/TodoItem';
 export * from './components/TodoList';
+export * from './context/TodoContext';
+export * from './context/TodoProvider';
+export * from './context/todoReducer';
+export * from './hooks/useTodoContext';
 export * from './layout/TodoAppLayout';
 export * from './main';
 export * from './pages/FormTodoPage';
 export * from './pages/TodoAppPage';
 export * from './router/router';
-
-export * from "./data/Todo";
