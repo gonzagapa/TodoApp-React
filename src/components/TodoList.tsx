@@ -1,12 +1,13 @@
 import { useTodoContext } from "../hooks/useTodoContext"
+import TodoItem from "./TodoItem";
 
 
 export function TodoList() {
   const {todos} = useTodoContext();
   return (
-    <div>{
+    <div className="grid gap-2.5">{
       todos.map(todo => (
-        <p key={todo.id}>{todo.description}</p>
+        <TodoItem todo={todo} key={todo.id}/>
       ))
       }</div>
   )

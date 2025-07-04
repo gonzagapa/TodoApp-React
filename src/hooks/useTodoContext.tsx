@@ -6,7 +6,7 @@ export function useTodoContext() {
   const todoContext = useContext(TodoContext);
 
   if(!todoContext){
-    throw Error("the provider is wrong place")
+    throw Error("useTodoContext has to be used within <TodoContext.Provider></TodoContext.Provider>")
   }
 
     return todoContext
