@@ -1,6 +1,6 @@
 import type { Todo } from "../data";
 
-type ActionType = "[TODO] add" | "[TODO] edit" | "[TODO] delete";
+type ActionType = "[TODO] add" | "[TODO] toggle" | "[TODO] delete";
 
 export interface Action {type:ActionType, payload?:Todo}
 
@@ -10,12 +10,15 @@ export const todoReducer = (state:Todo[], action:Action) : Todo[] =>{
         case "[TODO] add":
             return [...state, action.payload!]
         
-        case "[TODO] edit":
+        case "[TODO] toggle":
             const todoEditId = action.payload?.id;
 
             return state.map(todo =>{
                 if(todo.id === todoEditId) {
-                    return action.payload!
+                    return {
+                        ...todo,
+                        done:!todo.done
+                    }
                 }
                 return todo;
             });
