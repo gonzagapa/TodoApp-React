@@ -17,7 +17,7 @@ export default function TodoItem({todo}:Props) {
             <p className={`line-clamp-1 ${todo.done ? "line-through": ""}`}>{todo.description}</p>
         </div>
         <div className="flex flex-col gap-2">
-            <button className="bg-green-600 hover:bg-green-500 text-while font-semibold py-2 px-4 cursor-pointer" onClick={()=> {dispatch({type:"[TODO] toggle", payload:todo})}}>Toggle</button>
+            <button className="bg-teal-600 hover:bg-teal-500 text-while font-semibold py-2 px-4 cursor-pointer" onClick={()=> {dispatch({type:"[TODO] toggle", payload:todo})}}>Toggle</button>
             <button className="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-4 cursor-pointer" onClick={()=> {dispatch({type:"[TODO] delete", payload:todo})}}>Delete</button>
         </div>
     </div>
