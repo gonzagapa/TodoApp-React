@@ -7,12 +7,12 @@ interface Props {
     children:React.ReactNode
 }
 
-const initialState:Todo[] = [
-        new Todo("Terminar curso de React", "React"),
-        new Todo("Lavarme los dientes", "Personal"),
-    ]
+
+const initialState:Todo[] = localStorage.getItem("todos")?.length == 0 ?
+[] : JSON.parse(localStorage.getItem("todos")!);
 
 export const TodoProvider = ({children}:Props)=>{
+    console.log({todos:localStorage.getItem("todos")});
     const [todos, dispatch]= useReducer(todoReducer,initialState);
 
     return (
