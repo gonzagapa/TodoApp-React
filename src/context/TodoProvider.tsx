@@ -8,8 +8,8 @@ interface Props {
 }
 
 const initialState:Todo[] = [
-        new Todo("Terminar curso de React"),
-        new Todo("Lavarme los dientes"),
+        new Todo("Terminar curso de React", "React"),
+        new Todo("Lavarme los dientes", "Personal"),
     ]
 
 export const TodoProvider = ({children}:Props)=>{
