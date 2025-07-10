@@ -5,7 +5,7 @@ import { Todo } from "../data";
 import type { FormEvent } from "react";
 
 export  function FormTodoPage() {
-  const {dispatch,todos} = useTodoContext();
+  const {dispatch} = useTodoContext();
   let navigate = useNavigate();
   const {title, description, onInputChange} = useForm({title:"",description:""});
 
