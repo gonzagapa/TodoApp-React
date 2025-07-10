@@ -16,6 +16,10 @@ export const Router = createBrowserRouter([{
         {
             path:'add',
             element:<FormTodoPage/>
+        },
+        {
+            path:'edit/:id',
+            element:<FormTodoPage/>
         }
 ]
 }])

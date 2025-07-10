@@ -1,25 +1,42 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useTodoContext } from "../hooks/useTodoContext"
 import { useForm } from "../hooks/useForm";
 import { Todo } from "../data";
-import type { FormEvent } from "react";
+import { type FormEvent } from "react";
 
 export  function FormTodoPage() {
-  const {dispatch} = useTodoContext();
+  const {dispatch,todos} = useTodoContext();
   let navigate = useNavigate();
-  const {title, description, onInputChange} = useForm({title:"",description:""});
+  let {id} = useParams();
+
+  
+  const todo = todos.find(todo => todo.id === Number(id));
+  
+  const initialForm = id && todo ? 
+  {title:todo.title,description:todo.description}
+  :{title:"",description:""}
+
+
+  const {title, description, onInputChange} = useForm(initialForm);
 
 
   const handleSubmit = (event:FormEvent<HTMLFormElement>)=>{
     event.preventDefault();
-    const newTodo = new Todo(description,title);
-    dispatch({type:"[TODO] add",payload:newTodo});
+
+    if(!id){ //if id doesnt exist
+      const newTodo = new Todo(description,title);
+      dispatch({type:"[TODO] add",payload:newTodo});
+    }
+    else{    
+      dispatch({type:"[TODO] edit", payload:{...todo as Todo,description,title}})
+    }
+    
     navigate("/");
   }
 
   return (
     <form className="bg-gray-950 p-10" onSubmit={handleSubmit}>
-      <h2 className="mb-7 text-3xl">Create a task</h2>
+      <h2 className="mb-7 text-3xl text-center">{id ? "Edit": "Create" } a task</h2>
 
       <div className="mb-5">
         <input type="text" 
